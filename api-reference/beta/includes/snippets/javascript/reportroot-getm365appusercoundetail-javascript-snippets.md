@@ -10,7 +10,7 @@ const options = {
 
 const client = Client.init(options);
 
-let stream = await client.api('/reports/getM365AppUserDetail(period='D7')')
+let report = await client.api('/reports/getM365AppUserDetail(period='D7')')
 	.version('beta')
 	.get();
 

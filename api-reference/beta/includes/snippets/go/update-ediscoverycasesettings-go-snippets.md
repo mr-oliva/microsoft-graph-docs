@@ -7,27 +7,29 @@ description: "Automatically generated file. DO NOT MODIFY"
 //THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
 graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewEdiscoveryCaseSettings()
-redundancyDetection := msgraphsdk.NewRedundancyDetectionSettings()
+requestBody := graphmodels.NewEdiscoveryCaseSettings()
+"@odata.type" := "#microsoft.graph.security.ediscoveryCaseSettings"
+requestBody.Set"@odata.type"(&"@odata.type") 
+redundancyDetection := graphmodels.NewRedundancyDetectionSettings()
+additionalData := map[string]interface{}{
+	"@odata.type" : "microsoft.graph.security.redundancyDetectionSettings", 
+}
+redundancyDetection.SetAdditionalData(additionalData)
 requestBody.SetRedundancyDetection(redundancyDetection)
-redundancyDetection.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "microsoft.graph.security.redundancyDetectionSettings",
+topicModeling := graphmodels.NewTopicModelingSettings()
+additionalData := map[string]interface{}{
+	"@odata.type" : "microsoft.graph.security.topicModelingSettings", 
 }
-topicModeling := msgraphsdk.NewTopicModelingSettings()
+topicModeling.SetAdditionalData(additionalData)
 requestBody.SetTopicModeling(topicModeling)
-topicModeling.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "microsoft.graph.security.topicModelingSettings",
+ocr := graphmodels.NewOcrSettings()
+additionalData := map[string]interface{}{
+	"@odata.type" : "microsoft.graph.security.ocrSettings", 
 }
-ocr := msgraphsdk.NewOcrSettings()
+ocr.SetAdditionalData(additionalData)
 requestBody.SetOcr(ocr)
-ocr.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "microsoft.graph.security.ocrSettings",
-}
-requestBody.SetAdditionalData(map[string]interface{}{
-	"@odata.type": "#microsoft.graph.security.ediscoveryCaseSettings",
-}
-ediscoveryCaseId := "ediscoveryCase-id"
-graphClient.Security().Cases().EdiscoveryCasesById(&ediscoveryCaseId).Settings().Patch(requestBody)
+
+graphClient.Security().Cases().EdiscoveryCasesById("ediscoveryCase-id").Settings().Patch(requestBody)
 
 
 ```

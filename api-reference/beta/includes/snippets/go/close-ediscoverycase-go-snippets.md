@@ -7,8 +7,8 @@ description: "Automatically generated file. DO NOT MODIFY"
 //THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
 graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-ediscoveryCaseId := "ediscoveryCase-id"
-graphClient.Security().Cases().EdiscoveryCasesById(&ediscoveryCaseId).Close(ediscoveryCase-id).Post()
+
+graphClient.Security().Cases().EdiscoveryCasesById("ediscoveryCase-id").Close(ediscoveryCase-id).Post()
 
 
 ```

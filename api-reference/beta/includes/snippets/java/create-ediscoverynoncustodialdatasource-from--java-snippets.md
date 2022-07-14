@@ -7,9 +7,13 @@ description: "Automatically generated file. DO NOT MODIFY"
 GraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
 EdiscoveryNoncustodialDataSource ediscoveryNoncustodialDataSource = new EdiscoveryNoncustodialDataSource();
-ediscoveryNoncustodialDataSource.additionalDataManager().put("@odata.id", new JsonPrimitive("https://graph.microsoft.com/beta/security/cases/eDiscoverycases/b0073e4e-4184-41c6-9eb7-8c8cc3e2288b/noncustodialDataSources/39333641443238353535383731453339"));
+SiteSource dataSource = new SiteSource();
+Site site = new Site();
+site.webUrl = "https://m365x809305.sharepoint.com/sites/Design-topsecret";
+dataSource.site = site;
+ediscoveryNoncustodialDataSource.dataSource = dataSource;
 
-graphClient.security().cases().ediscoveryCases("b0073e4e-4184-41c6-9eb7-8c8cc3e2288b").searches("c61a5860-d634-4d14-aea7-d82b6f4eb7af").noncustodialSources().references()
+graphClient.security().cases().ediscoveryCases("b0073e4e-4184-41c6-9eb7-8c8cc3e2288b").noncustodialDataSources()
 	.buildRequest()
 	.post(ediscoveryNoncustodialDataSource);
 

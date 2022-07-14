@@ -7,11 +7,11 @@ description: "Automatically generated file. DO NOT MODIFY"
 //THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
 graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewEdiscoveryReviewSet()
+requestBody := graphmodels.NewEdiscoveryReviewSet()
 displayName := "My review set 2"
-requestBody.SetDisplayName(&displayName)
-ediscoveryCaseId := "ediscoveryCase-id"
-result, err := graphClient.Security().Cases().EdiscoveryCasesById(&ediscoveryCaseId).ReviewSets().Post(requestBody)
+requestBody.SetDisplayName(&displayName) 
+
+result, err := graphClient.Security().Cases().EdiscoveryCasesById("ediscoveryCase-id").ReviewSets().Post(requestBody)
 
 
 ```

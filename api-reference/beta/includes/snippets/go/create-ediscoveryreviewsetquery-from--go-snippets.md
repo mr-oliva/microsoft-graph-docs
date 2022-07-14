@@ -7,14 +7,13 @@ description: "Automatically generated file. DO NOT MODIFY"
 //THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
 graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewEdiscoveryReviewSetQuery()
+requestBody := graphmodels.NewEdiscoveryReviewSetQuery()
 displayName := "My Query 1"
-requestBody.SetDisplayName(&displayName)
-contentQuery := "(Author="edison")"
-requestBody.SetContentQuery(&contentQuery)
-ediscoveryCaseId := "ediscoveryCase-id"
-ediscoveryReviewSetId := "ediscoveryReviewSet-id"
-result, err := graphClient.Security().Cases().EdiscoveryCasesById(&ediscoveryCaseId).ReviewSetsById(&ediscoveryReviewSetId).Queries().Post(requestBody)
+requestBody.SetDisplayName(&displayName) 
+contentQuery := "(Author=\"edison\")"
+requestBody.SetContentQuery(&contentQuery) 
+
+result, err := graphClient.Security().Cases().EdiscoveryCasesById("ediscoveryCase-id").ReviewSetsById("ediscoveryReviewSet-id").Queries().Post(requestBody)
 
 
 ```

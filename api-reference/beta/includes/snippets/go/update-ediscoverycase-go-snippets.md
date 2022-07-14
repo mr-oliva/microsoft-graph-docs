@@ -7,13 +7,13 @@ description: "Automatically generated file. DO NOT MODIFY"
 //THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
 graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewEdiscoveryCase()
+requestBody := graphmodels.NewEdiscoveryCase()
 displayName := "My Case 1 - Renamed"
-requestBody.SetDisplayName(&displayName)
+requestBody.SetDisplayName(&displayName) 
 description := "Updated description"
-requestBody.SetDescription(&description)
-ediscoveryCaseId := "ediscoveryCase-id"
-graphClient.Security().Cases().EdiscoveryCasesById(&ediscoveryCaseId).Patch(requestBody)
+requestBody.SetDescription(&description) 
+
+graphClient.Security().Cases().EdiscoveryCasesById("ediscoveryCase-id").Patch(requestBody)
 
 
 ```

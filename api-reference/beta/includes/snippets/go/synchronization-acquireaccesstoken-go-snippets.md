@@ -7,15 +7,22 @@ description: "Automatically generated file. DO NOT MODIFY"
 //THE GO SDK IS IN PREVIEW. NON-PRODUCTION USE ONLY
 graphClient := msgraphsdk.NewGraphServiceClient(requestAdapter)
 
-requestBody := msgraphsdk.NewCredentialsRequestBody()
-requestBody.SetCredentials( []SynchronizationSecretKeyStringValuePair {
-	msgraphsdk.NewSynchronizationSecretKeyStringValuePair(),
-	SetAdditionalData(map[string]interface{}{
-		"@odata.type": "microsoft.graph.synchronizationSecretKeyStringValuePair",
-	}
+requestBody := graphmodels.NewAcquireAccessTokenPostRequestBody()
+
+
+synchronizationSecretKeyStringValuePair := graphmodels.NewSynchronizationSecretKeyStringValuePair()
+additionalData := map[string]interface{}{
+	"@odata.type" : "microsoft.graph.synchronizationSecretKeyStringValuePair", 
 }
-applicationId := "application-id"
-graphClient.ApplicationsById(&applicationId).Synchronization().AcquireAccessToken(application-id).Post(requestBody)
+synchronizationSecretKeyStringValuePair.SetAdditionalData(additionalData)
+
+credentials := []graphmodels.SynchronizationSecretKeyStringValuePairable {
+	synchronizationSecretKeyStringValuePair,
+
+}
+requestBody.SetCredentials(credentials)
+
+graphClient.ApplicationsById("application-id").Synchronization().AcquireAccessToken(application-id).Post(requestBody)
 
 
 ```
